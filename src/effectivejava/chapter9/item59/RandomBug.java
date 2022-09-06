@@ -1,13 +1,15 @@
 package effectivejava.chapter9.item59;
 import java.util.*;
+import java.util.concurrent.ThreadLocalRandom;
 
 // 무작위 수 생성은 쉽지 않다.
 public class RandomBug {
     // 코드 59-1 흔하지만 문제가 심각한 코드! (351쪽)
     static Random rnd = new Random();
+    static ThreadLocalRandom threadLocalRandom = ThreadLocalRandom.current();
 
     static int random(int n) {
-        return Math.abs(rnd.nextInt()) % n;
+        return Math.abs(threadLocalRandom.nextInt()) % n;
     }
 
     // 무작위 수 1백만 개 생성 후, 중간 값보다 작은 수의 개수 출력 (351쪽)

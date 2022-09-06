@@ -13,6 +13,7 @@ public class BigDecimalChange {
              funds.compareTo(price) >= 0;
              price = price.add(TEN_CENTS)) {
             funds = funds.subtract(price);
+            System.out.println("funds = " + funds);
             itemsBought++;
         }
         System.out.println(itemsBought + "개 구입");
